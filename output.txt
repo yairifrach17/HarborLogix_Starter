@@ -1,0 +1,85 @@
+HarborLogix acceptance test
+Student ID declared: 214506511
+--------------------------------------------------
+  PASS  student ID is digits only, at least 2 digits
+  PASS  BASE_STORAGE_RATE derived from D1
+  PASS  POWER_RATE derived from D2
+  PASS  HAZMAT_MULTIPLIER derived from D1
+  PASS  LIQUID_RATE derived from D2
+  PASS  OVERSIZE_DAILY_FLAT derived from D1
+  PASS  YARD_CAPACITY derived from D1
+  PASS  CargoUnit is abstract
+  PASS  RefrigeratedContainer extends StandardContainer (3 levels)
+  PASS  HazmatContainer extends StandardContainer
+  PASS  LiquidTank extends CargoUnit directly
+  PASS  totalStorageCharge() is final
+  PASS  all instance fields are private
+  PASS  standard daily fee
+  PASS  totalStorageCharge = fee x days
+  PASS  reefer fee extends parent fee
+  PASS  reefer costs more than plain container of same volume
+  PASS  hazmat fee multiplies parent fee
+  PASS  tank fee uses actual content
+  PASS  transferOut reduces the daily fee
+  PASS  dispatch through base reference reaches Reefer
+  PASS  dispatch through base reference reaches Tank
+  PASS  toString chain includes subclass detail
+  PASS  hazmat briefing states the class
+  PASS  standard client discount is 0
+  PASS  contract client discount
+  PASS  government client discount
+  PASS  government client has priority
+  PASS  standard client has no priority
+  PASS  tiers are distinct
+  PASS  yard revenue sums polymorphic fees
+  PASS  invoice applies the client's own discount
+  PASS  walk-in invoice has no discount
+  PASS  heaviestUnit returns the heaviest
+  PASS  duplicate unit ID is rejected
+  PASS  over-capacity throws IllegalStateException
+  PASS  negative weight rejected
+  PASS  zero volume rejected
+  PASS  null owner rejected
+  PASS  reefer above 8C rejected
+  PASS  hazard class 0 rejected
+  PASS  fill percent over 100 rejected
+  PASS  contract discount over 40 rejected
+  PASS  blank client name rejected
+--------------------------------------------------
+passed: 44   failed: 0
+RESULT: PASS - conformant. Design marks are assessed separately.
+
+=== 1. YARD MANIFEST ===
+=== Yard Manifest: Main-Yard ===
+Standard[id=SC-1, owner=Standard Client, 12000.0 kg, 5 days], volume=33.0 m3
+  Safety Briefing: Standard container: inspect twistlocks and verify secure stacking.
+Reefer[id=RC-2, owner=Contract Client, 14000.0 kg, 4 days], volume=30.0 m3, temp=-18.0 C, power=5.0 kW
+  Safety Briefing: Refrigerated cargo: maintain continuous electrical power and monitor temperature.
+Hazmat[id=HC-3, owner=Contract Client, 18000.0 kg, 3 days], volume=28.0 m3, hazardClass=3, escort=true
+  Safety Briefing: Hazardous cargo class 3: handle with extreme caution, escort required.
+Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 20000.0/25000.0 L (80.0%)
+  Safety Briefing: Liquid tank: inspect valves, check pressure seals, and verify electrical grounding.
+Total Daily Revenue: 1405.60
+
+=== 2. INVOICES ===
+Standard Client (Discount: 0.0%): 1485.0
+Contract Client (Discount: 15.0%): 1941.23
+Government Client (Discount: 25.0%): 1980.0
+
+=== 3. DRAINAGE ROUND ===
+Before pump: Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 20000.0/25000.0 L (80.0%)
+After pumping 5000L: Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 15000.0/25000.0 L (60.0%)
+
+=== 4. OVERSIZED CARGO (PART D) ===
+=== Yard Manifest: Main-Yard ===
+Standard[id=SC-1, owner=Standard Client, 12000.0 kg, 5 days], volume=33.0 m3
+  Safety Briefing: Standard container: inspect twistlocks and verify secure stacking.
+Reefer[id=RC-2, owner=Contract Client, 14000.0 kg, 4 days], volume=30.0 m3, temp=-18.0 C, power=5.0 kW
+  Safety Briefing: Refrigerated cargo: maintain continuous electrical power and monitor temperature.
+Hazmat[id=HC-3, owner=Contract Client, 18000.0 kg, 3 days], volume=28.0 m3, hazardClass=3, escort=true
+  Safety Briefing: Hazardous cargo class 3: handle with extreme caution, escort required.
+Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 15000.0/25000.0 L (60.0%)
+  Safety Briefing: Liquid tank: inspect valves, check pressure seals, and verify electrical grounding.
+Oversized[id=OC-5, owner=Government Client, 35000.0 kg, 2 days], length=14.5m, heavyCrane=true
+  Safety Briefing: Oversized cargo: wide load escort required
+Total Daily Revenue: 1478.10
