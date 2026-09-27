@@ -49,6 +49,7 @@ Student ID declared: 214506511
 passed: 44   failed: 0
 RESULT: PASS - conformant. Design marks are assessed separately.
 
+
 === 1. YARD MANIFEST ===
 === Yard Manifest: Main-Yard ===
 Standard[id=SC-1, owner=Standard Client, 12000.0 kg, 5 days], volume=33.0 m3
@@ -68,7 +69,7 @@ Government Client (Discount: 25.0%): 1980.0
 
 === 3. DRAINAGE ROUND ===
 Before pump: Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 20000.0/25000.0 L (80.0%)
-After pumping 5000L: Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 15000.0/25000.0 L (60.0%)
+After pumping 3000L: Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 17000.0/25000.0 L (68.0%)
 
 === 4. OVERSIZED CARGO (PART D) ===
 === Yard Manifest: Main-Yard ===
@@ -78,8 +79,8 @@ Reefer[id=RC-2, owner=Contract Client, 14000.0 kg, 4 days], volume=30.0 m3, temp
   Safety Briefing: Refrigerated cargo: maintain continuous electrical power and monitor temperature.
 Hazmat[id=HC-3, owner=Contract Client, 18000.0 kg, 3 days], volume=28.0 m3, hazardClass=3, escort=true
   Safety Briefing: Hazardous cargo class 3: handle with extreme caution, escort required.
-Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 15000.0/25000.0 L (60.0%)
+Tank[id=LT-4, owner=Government Client, 20000.0 kg, 6 days], 17000.0/25000.0 L (68.0%)
   Safety Briefing: Liquid tank: inspect valves, check pressure seals, and verify electrical grounding.
 Oversized[id=OC-5, owner=Government Client, 35000.0 kg, 2 days], length=14.5m, heavyCrane=true
   Safety Briefing: Oversized cargo: wide load escort required
-Total Daily Revenue: 1478.10
+Total Daily Revenue: 1522.10

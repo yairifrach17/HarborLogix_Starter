@@ -40,16 +40,21 @@ public class Yard {
 
     public void receive(CargoUnit unit) {
         if (unit == null) {
-            throw new IllegalArgumentException("Cannot receive null cargo unit");
+            throw new IllegalArgumentException("Cargo unit cannot be null");
         }
-        if (units.size() >= capacity) {
-            throw new IllegalStateException("Yard capacity reached: " + capacity);
-        }
+
         for (CargoUnit existing : units) {
             if (existing.getUnitId().equals(unit.getUnitId())) {
-                throw new IllegalArgumentException("Duplicate unit ID: " + unit.getUnitId());
+                throw new IllegalArgumentException(
+                        "Duplicate cargo unit ID: " + unit.getUnitId()
+                );
             }
         }
+
+        if (units.size() >= capacity) {
+            throw new IllegalStateException("Yard capacity reached");
+        }
+
         units.add(unit);
     }
 

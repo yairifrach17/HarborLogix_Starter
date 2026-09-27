@@ -36,8 +36,8 @@ public class TerminalApp {
         for (CargoUnit unit : yard.getUnits()) {
             if (unit instanceof LiquidTank tank) {
                 System.out.println("Before pump: " + tank);
-                tank.transferOut(5000.0);
-                System.out.println("After pumping 5000L: " + tank);
+                tank.transferOut(3000.0);
+                System.out.println("After pumping 3000L: " + tank);
             }
         }
 
